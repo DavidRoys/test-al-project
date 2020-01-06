@@ -6,11 +6,12 @@ codeunit 50100 "FirstCodeunit"
         myProcedure(5);
     end;
 
-    local procedure myProcedure(intParameter: Integer)
+    local procedure myProcedure(intParameter: Integer): Integer
     var
         myInt: Integer;
     begin
         myInt := intParameter;
+        exit(myInt);
     end;
 
     local procedure procedureCalls()
