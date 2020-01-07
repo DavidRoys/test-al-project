@@ -39,9 +39,15 @@ codeunit 50100 "FirstCodeunit"
             myInt,
             myBoolean
         );
+
+        MissingProcedureWithFieldsAsParameter(Customer."No.");
+
+        MissingProcedureWithTwoFieldsWithSameNameAsParameter(Customer."No.", Vendor."No.");
     end;
 
     var
         myInteger: Integer;
         myBoolean: Boolean;
+        Customer: Record Customer;
+        Vendor: Record Vendor;
 }
