@@ -1,6 +1,11 @@
 //First Line has Comments	Line 0
 codeunit 50100 "FirstCodeunit"
 {
+    procedure MethodWithParameterIncludingBrackets(PosPrinter: Option " ","TM-T88R"; LineDisplay: Option " ","DM-D101","IBM VFD (serielle Direktverbindung)")
+    begin
+        creatableProcedure();
+    end;
+
     trigger onRun()
     begin
         myProcedure(5);
@@ -50,4 +55,5 @@ codeunit 50100 "FirstCodeunit"
         myBoolean: Boolean;
         Customer: Record Customer;
         Vendor: Record Vendor;
+        MyTable: Record MyTable;
 }
