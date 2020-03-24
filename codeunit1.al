@@ -11,12 +11,17 @@ codeunit 50100 "FirstCodeunit"
         myProcedure(5);
     end;
 
-    local procedure myProcedure(intParameter: Integer): Integer
+    local procedure myProcedure(intParam: Integer): Integer
     var
         myInt: Integer;
     begin
-        myInt := intParameter;
+        myInt := intParam;
         exit(myInt);
+    end;
+
+    local procedure myProcedureWithTwoParams(intParam: Integer; textParam: Text): Integer
+    begin
+        exit(5);
     end;
 
     local procedure procedureCalls()
@@ -43,6 +48,10 @@ codeunit 50100 "FirstCodeunit"
 
         MissingProcedureWithProcedureCallInside(myProcedure(5));
 
+        MissingProcedureWithProcedureCallInside2(myProcedureWithTwoParams(5, 'text'), myInteger);
+
+        MissingProcedureWithProcedureCallInside3(SecondCodeunit.myProcedure(5, 'text'), myInteger);
+
         myProcedure(MissingProcedureWithDirectlyUsedReturnValue());
 
         MultilineProcedureCall(
@@ -54,6 +63,7 @@ codeunit 50100 "FirstCodeunit"
         MissingProcedureWithFieldsOfSameAppAsParameter(MyTable."MyField");
 
         MissingProcedureWithTwoFieldsWithSameNameAsParameter(Customer."No.", Vendor."No.");
+
     end;
 
     var
