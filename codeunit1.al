@@ -30,7 +30,12 @@ codeunit 50100 "FirstCodeunit"
 
         MissingProcedureWithParameters(myInteger, myBoolean);
 
-        myText := MissingProcedureWithReturn(myInteger);
+        myText := MissingProcedureWithReturn1(myInteger);
+        "myText" := MissingProcedureWithReturn2(myInteger);
+
+        MyTable.MyField := MissingProcedureWithFieldReturn1(myInteger);
+        "MyTable".MyField := MissingProcedureWithFieldReturn2(myInteger);
+        MyTable."MyField" := MissingProcedureWithFieldReturn3(myInteger);
 
         SecondCodeunit.MissingProcedureOfOtherObject(myInteger, myBoolean);
 
@@ -45,15 +50,19 @@ codeunit 50100 "FirstCodeunit"
             myBoolean
         );
 
-        MissingProcedureWithFieldsAsParameter(Customer."No.");
+        MissingProcedureWithFieldsOfOtherAppAsParameter(Customer."No.", customer.Reserve);
+        MissingProcedureWithFieldsOfSameAppAsParameter(MyTable."MyField");
 
         MissingProcedureWithTwoFieldsWithSameNameAsParameter(Customer."No.", Vendor."No.");
     end;
 
     var
-        myInteger: Integer;
-        myBoolean: Boolean;
         Customer: Record Customer;
         Vendor: Record Vendor;
         MyTable: Record MyTable;
+        myInteger: Integer;
+        myBoolean: Boolean;
+
+
+
 }
