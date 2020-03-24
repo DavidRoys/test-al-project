@@ -46,10 +46,8 @@ codeunit 50100 "FirstCodeunit"
 
         myText := SecondCodeunit.MissingProcedureOfOtherObjectWithReturn(myInteger, myBoolean);
 
-        MissingProcedureWithProcedureCallInside(myProcedure(5));
-
+        MissingProcedureWithProcedureCallInside1(myProcedure(5));
         MissingProcedureWithProcedureCallInside2(myProcedureWithTwoParams(5, 'text'), myInteger);
-
         MissingProcedureWithProcedureCallInside3(SecondCodeunit.myProcedure(5, 'text'), myInteger);
 
         myProcedure(MissingProcedureWithDirectlyUsedReturnValue());
