@@ -14,6 +14,38 @@
             "launchBrowser": true,
             "enableLongRunningSqlStatements": true,
             "enableSqlInformationDebugger": true
+        },
+        {
+            "type": "al",
+            "request": "launch",
+            "name": "Container BC Standard",
+            "server": "http://containerdfe.westeurope.azurecontainer.io",
+            "serverInstance": "BC",
+            "authentication": "UserPassword",
+            "startupObjectId": 22,
+            "startupObjectType": "Page",
+            "breakOnError": true,
+            "launchBrowser": true,
+            "enableLongRunningSqlStatements": true,
+            "enableSqlInformationDebugger": true,
+            "schemaUpdateMode": "ForceSync"
+        },
+        {
+            "type": "al",
+            "request": "launch",
+            "name": "Your own server",
+            "server": "https://beat.westeurope.cloudapp.azure.com/",
+            "serverInstance": "dfedev",
+            "authentication": "UserPassword",
+            "port": 443,
+            "startupObjectId": 22,
+            "startupObjectType": "Page",
+            "tenant": "default",
+            "breakOnError": true,
+            "launchBrowser": true,
+            "enableLongRunningSqlStatements": true,
+            "enableSqlInformationDebugger": true,
+            "schemaUpdateMode": "ForceSync"
         }
     ]
 }
