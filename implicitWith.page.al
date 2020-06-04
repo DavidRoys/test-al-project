@@ -22,7 +22,17 @@ page 50101 ImplicitWithPage
     end;
 
     local procedure IsDirty(): Boolean
+    var
+        Vendor: Record Vendor;
+        Item: Record Item;
     begin
-        exit(Name <> '');
+        with Vendor do begin
+            Rec.Name := Name;
+            With Item do begin
+                if "Unit Cost" = 0 then
+                    Name := 'Empty Cost';
+            end;
+        end;
+        Exit(true);
     end;
 }
