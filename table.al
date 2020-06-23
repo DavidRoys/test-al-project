@@ -13,7 +13,7 @@ table 50100 MyTable
                 myBoolean: Boolean;
             begin
                 myBoolean := CreatableProcedure1(MyField);
-                Page.Run(Page::MyPage);
+                Page.RunModal(Page::MyPage, Rec);
                 MissingProcedureWithRecsAsParameter(Rec, xRec);
             end;
         }
@@ -50,4 +50,6 @@ table 50100 MyTable
 
     end;
 
+    var
+        PageManagement: Codeunit "Page Management";
 }
