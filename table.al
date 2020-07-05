@@ -15,6 +15,9 @@ table 50100 MyTable
                 myBoolean := CreatableProcedure1(MyField);
                 Page.RunModal(Page::MyPage, Rec);
                 MissingProcedureWithRecsAsParameter(Rec, xRec);
+
+                with Rec do
+                    myBoolean := MyField = 5;
             end;
         }
     }

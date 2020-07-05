@@ -8,9 +8,12 @@ codeunit 50107 CodeunitToExtract
     begin
         start := 4;
         addend := 6;
-        result := start + addend;
+        result := start + (addend - 1) + 1;
         procedureWithOneParameterByValue(Customer);
         Message('Result: %1', result);
+
+        if not (1 in [2, 3]) then begin
+        end;
     end;
 
     procedure testProcedureWithOneParameterByValue()

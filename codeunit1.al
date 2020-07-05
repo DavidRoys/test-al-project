@@ -24,8 +24,33 @@ codeunit 50100 "FirstCodeunit"
     local procedure myProcedure(var intParam: Integer): Integer
     var
         myInt: Integer;
+        myList: List of [Integer];
+        CustomerList: Page "Customer List";
     begin
         myInt := intParam;
+        case myInt of
+            5:
+                intParam := Customer."Statistics Group";
+            7, 8:
+                intParam := Customer."Statistics Group";
+            else
+                intParam := Customer."Statistics Group";
+        end;
+        for myInt := 5 downto 8 do
+            intParam := Customer."Statistics Group";
+
+        foreach myInt in myList do
+            intParam := Customer."Statistics Group";
+
+        if myInt = 5 then
+            intParam := 6
+        else begin
+            intParam := Customer."Statistics Group";
+        end;
+        while myInt = 5 do
+            myInt := Customer."Statistics Group";
+        myInt := Customer."Statistics Group";
+        CustomerList.ExistingProcedure();
         exit(myInt);
     end;
 
@@ -79,6 +104,7 @@ codeunit 50100 "FirstCodeunit"
         MissingProcedureWithProcedureCallInside3(SecondCodeunit.myProcedure(5, 'text'), myInteger);
 
         myProcedureWithTwoParams(1, MissingProcedureWithDirectlyUsedReturnValue());
+        SecondCodeunit.myProcedure(1, MissingProcedureWithDirectlyUsedReturnValue2());
         MultilineProcedureCall(
             myInteger,
             myBoolean

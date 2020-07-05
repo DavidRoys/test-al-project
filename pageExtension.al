@@ -44,7 +44,7 @@ pageextension 50100 CustomerListExtension extends "Customer List" //50000
     var
         myInt: Integer;
 
-    local procedure ExistingProcedure()
+    procedure ExistingProcedure()
     begin
         CreatableProcedure4();
     end;
