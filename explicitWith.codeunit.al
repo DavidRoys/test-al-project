@@ -4,6 +4,7 @@ codeunit 50104 ExplicitWith
     var
         Customer: Record Customer;
         Vendor: Record Vendor;
+        MyQuery: Query MyQuery;
     begin
         with Customer do begin
             if isDirty() then Insert();
@@ -11,6 +12,10 @@ codeunit 50104 ExplicitWith
         With Vendor do begin
             if isDirty() then
                 Insert();
+        end;
+        with MyQuery do begin
+            if Open() and Read() then
+                Customer.Name := ColumnName;
         end;
     end;
 
