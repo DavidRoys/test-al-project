@@ -14,6 +14,7 @@ page 50100 MyPage
                 field(Name; "No.")
                 {
                     ApplicationArea = All;
+                    TableRelation = Customer."No." where("No." = field("No."));
                     trigger OnLookup(var Text: Text): Boolean
                     begin
                         Text := 'a';
