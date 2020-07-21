@@ -51,7 +51,7 @@ codeunit 50100 "FirstCodeunit"
             myInt := Customer."Statistics Group";
         myInt := Customer."Statistics Group";
         CustomerList.ExistingProcedure();
-        exit(myInt);
+        exit(MissingProcedureInExitStatement());
     end;
 
     local procedure myProcedureWithTwoParams(intParam: Integer; textParam: Text): Integer
@@ -70,6 +70,7 @@ codeunit 50100 "FirstCodeunit"
         myDecimal1, myDecimal2 : Decimal;
         TempMyTable: Record MyTable temporary;
         SalesLine: Record "Sales Line";
+        Länge: Integer;
     begin
         MissingProcedureWithoutParameters();
 
@@ -79,7 +80,7 @@ codeunit 50100 "FirstCodeunit"
         MissingProcedureWithEnum(MyEnum::MyValue);
 
         myText := MissingProcedureWithReturn1(myInteger);
-        "myText" := MissingProcedureWithReturn2(myInteger);
+        "myText" := MissingProcedureWithReturn2(myInteger, Länge);
         //LineComment
         myText := MissingProcedureWithReturn3(myInteger);
         /*
@@ -104,7 +105,7 @@ codeunit 50100 "FirstCodeunit"
         MissingProcedureWithProcedureCallInside3(SecondCodeunit.myProcedure(5, 'text'), myInteger);
 
         myProcedureWithTwoParams(1, MissingProcedureWithDirectlyUsedReturnValue());
-        SecondCodeunit.myProcedure(1, MissingProcedureWithDirectlyUsedReturnValue2());
+        SecondCodeunit.myProcedure(1, MissingProcedureWithDirectlyUsedReturnValueInMemberExpression());
         MultilineProcedureCall(
             myInteger,
             myBoolean
