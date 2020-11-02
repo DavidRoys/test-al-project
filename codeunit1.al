@@ -70,14 +70,19 @@ codeunit 50100 "FirstCodeunit"
         myDecimal1, myDecimal2 : Decimal;
         TempMyTable: Record MyTable temporary;
         SalesLine: Record "Sales Line";
+        x: Label 'x';
         Länge: Integer;
+        CustArray: array[2] of Record Customer;
+        MyInterface: Interface MyInterface;
     begin
+        CustArray[0].CalcAvailableCredit();
         MissingProcedureWithoutParameters();
 
         MissingProcedureWithParameter(myInteger);
 
         MissingProcedureWithParameters(myInteger, myBoolean);
         MissingProcedureWithEnum(MyEnum::MyValue);
+        MissingProcedureWithEnum2(enum::MyEnum::MyValue);
 
         myText := MissingProcedureWithReturn1(myInteger);
         "myText" := MissingProcedureWithReturn2(myInteger, Länge);
@@ -91,6 +96,8 @@ codeunit 50100 "FirstCodeunit"
         MyTable.MyField := MissingProcedureWithFieldReturn1(myInteger);
         "MyTable".MyField := MissingProcedureWithFieldReturn2(myInteger);
         MyTable."MyField" := MissingProcedureWithFieldReturn3(myInteger);
+        with MyTable do
+            MyField := 5;
 
         MissingProcedureWithDotInVariableName("Pass Nos.");
 
@@ -116,6 +123,7 @@ codeunit 50100 "FirstCodeunit"
         MissingProcedureWithTwoFieldsWithSameNameAsParameter1(Customer."No.", Vendor."No.");
         MissingProcedureWithTwoFieldsWithSameNameAsParameter2(Customer."No.", "No.");
         MissingProcedureWithQuotedNameAsParameter(SalesOrderTestPage);
+        MissingProcedureWithObjectIdAsParameter(Database::Item);
 
         MissingProcedureWithPrimitiveTypes('Hello World!', 5, 5.3, true);
         if MissingProcedureInsideIfStatement() then
@@ -129,6 +137,7 @@ codeunit 50100 "FirstCodeunit"
 
         MissingProcedureWithTempRec(TempMyTable);
         myBoolean := (MissingProcedureInParenthesis());
+        MyInterface.MyInterfaceProcedure();
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"CustVendBank-Update", 'OnAfterUpdateCustomer', '', false, false)]
