@@ -17,7 +17,11 @@ codeunit 50100 "FirstCodeunit"
     end;
 
     local procedure MyNewFunction(arg: Text): Code[5]
+    var
+        myText: Text;
+        test: Label 'Test';
     begin
+        myText := test;
         Error('Procedure not implemented.');
     end;
 
@@ -67,7 +71,9 @@ codeunit 50100 "FirstCodeunit"
         myOption: Option Manual,"Apply Test";
         myText: Text[20];
         "No.": Code[20];
+        [InDataSet]
         myDecimal1, myDecimal2 : Decimal;
+        [InDataSet]
         TempMyTable: Record MyTable temporary;
         SalesLine: Record "Sales Line";
         x: Label 'x';
@@ -154,4 +160,5 @@ codeunit 50100 "FirstCodeunit"
         myInteger: Integer;
         myBoolean: Boolean;
         EmptyCodeunit: Codeunit EmptyCodeunit;
+        LastVariable: Codeunit EmptyCodeunit;
 }

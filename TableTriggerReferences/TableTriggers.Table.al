@@ -1,4 +1,4 @@
-table 50100 MyTable
+table 50101 "Table Triggers"
 {
     DataClassification = ToBeClassified;
 
@@ -8,17 +8,7 @@ table 50100 MyTable
         {
             DataClassification = ToBeClassified;
             trigger OnValidate()
-            var
-                myPage: Page VendorPage;
-                myBoolean: Boolean;
             begin
-                myBoolean := CreatableProcedure1(MyField);
-                Page.RunModal(Page::VendorPage, Rec);
-                MissingProcedureWithRecsAsParameter(Rec, xRec);
-
-                with Rec do
-                    myBoolean := MyField = 5;
-
                 Insert(true); //implicit Rec
                 Insert(false); //shouldn't be referenced
                 with Rec do
@@ -35,32 +25,24 @@ table 50100 MyTable
         }
     }
 
-    var
-        myInt: Integer;
-
     trigger OnInsert()
     begin
-        MyField := CreatableProcedure2(MyField, myInt);
     end;
 
     trigger OnModify()
     begin
-
     end;
 
     trigger OnRename()
     begin
-
     end;
-
-    var
-        PageManagement: Codeunit "Page Management";
 
     procedure myInsertTestProcedure()
     begin
         Init();
         Insert(true);
         Rec.GetLastOne().Insert(true);
+        Rec.GetLastOne().Insert(false);
     end;
 
     procedure
@@ -69,7 +51,7 @@ table 50100 MyTable
 
    )
    LastTableData
-   : Record MyTable
+   : Record "Table Triggers"
     begin
 
     end;

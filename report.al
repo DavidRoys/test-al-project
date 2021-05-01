@@ -11,6 +11,11 @@ report 50100 MyReport
             {
 
             }
+            trigger OnAfterGetRecord()
+            begin
+                DataItemName.Insert(true); //reference of onInsert
+                DataItemName.Insert(false); //not a reference of onInsert
+            end;
         }
     }
 
@@ -25,7 +30,10 @@ report 50100 MyReport
                     field(Name; myInt)
                     {
                         ApplicationArea = All;
+                        trigger OnValidate()
+                        begin
 
+                        end;
                     }
                 }
             }
@@ -38,10 +46,18 @@ report 50100 MyReport
                 action(ActionName)
                 {
                     ApplicationArea = All;
+                    trigger OnAction()
+                    begin
 
+                    end;
                 }
             }
         }
+
+        var
+            myInteger: Integer;
+            myInteger2: Integer;
+
     }
 
     var

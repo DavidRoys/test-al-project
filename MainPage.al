@@ -36,13 +36,12 @@ page 50103 MainPage
                 ApplicationArea = All;
 
                 trigger OnAction()
+                var
+                    MyInt: Integer;
                 begin
 
                 end;
             }
         }
     }
-
-    var
-        myInt: Integer;
 }

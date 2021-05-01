@@ -158,7 +158,7 @@ codeunit 50107 CodeunitToExtract
 
     procedure testProcedureWithUsedValueAfterwards()
     var
-        Customer: Record Customer;
+        Customer, Customer2 : Record Customer;
     begin
         Customer.Name := 'Test'; //extract this line
         Customer.Insert();
@@ -167,5 +167,12 @@ codeunit 50107 CodeunitToExtract
     procedure testProcedureWithUsedReturnValue(var Customer: Record Customer temporary) myReturnValue: Code[20]
     begin
         myReturnValue := Customer."No."; //extract this line
+    end;
+
+    procedure testProcedureWithExplicitWith(var Customer: Record Customer temporary) myReturnValue: Code[20]
+    begin
+        with Customer do begin
+            Name := 'Microsoft'; //extract this line
+        end;
     end;
 }

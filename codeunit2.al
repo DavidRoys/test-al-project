@@ -1,7 +1,13 @@
 codeunit 50101 SecondCodeunit
 {
-    procedure myProcedure(myInteger: Integer; myText: Text): Integer
+    internal procedure myProcedure(myInteger: Integer; myText: Text): Integer
+    var
+        i: Integer;
     begin
+        if i = 0 then begin
+
+        end;
+        i := i;
         myText := 'Hello World';
     end;
 
@@ -9,7 +15,7 @@ codeunit 50101 SecondCodeunit
     var
         Item: Record Item;
         myLabel: Label 'some text';
-        myInt, myI : Integer;
+        myInt, Myi : Integer;
     begin
         myText := 'Hello World';
         myI := 5;

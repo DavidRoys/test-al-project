@@ -29,4 +29,10 @@ codeunit 50102 TestCodeunit
         WhenProcedure();
         // [THEN] Then Expected Output 
     end;
+
+    [ModalPageHandler]
+    procedure MyConfirmHandler(var "Customer Card": TestPage "Customer Card")
+    begin
+        Error('Procedure MyConfirmHandler not implemented.');
+    end;
 }
