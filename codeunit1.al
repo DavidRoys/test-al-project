@@ -102,6 +102,7 @@ codeunit 50100 "FirstCodeunit"
         MyTable.MyField := MissingProcedureWithFieldReturn1(myInteger);
         "MyTable".MyField := MissingProcedureWithFieldReturn2(myInteger);
         MyTable."MyField" := MissingProcedureWithFieldReturn3(myInteger);
+        MyTable.Validate(MyField, MissingProcedureInsideValidate());
         with MyTable do
             MyField := 5;
 
@@ -116,6 +117,7 @@ codeunit 50100 "FirstCodeunit"
         MissingProcedureWithProcedureCallInside1(myProcedure(5));
         MissingProcedureWithProcedureCallInside2(myProcedureWithTwoParams(5, 'text'), myInteger);
         MissingProcedureWithProcedureCallInside3(SecondCodeunit.myProcedure(5, 'text'), myInteger);
+        myProcedureWithTwoParams(5, '', MissingProcedureInNonExistingOverload())
 
         myProcedureWithTwoParams(1, MissingProcedureWithDirectlyUsedReturnValue());
         SecondCodeunit.myProcedure(1, MissingProcedureWithDirectlyUsedReturnValueInMemberExpression());

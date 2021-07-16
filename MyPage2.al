@@ -1,9 +1,9 @@
-page 50105 MyPage
+page 50106 MyPage2
 {
     PageType = Card;
     ApplicationArea = All;
     UsageCategory = Administration;
-    SourceTable = Vendor;
+    SourceTable = MyTable;
 
     layout
     {
@@ -14,7 +14,6 @@ page 50105 MyPage
                 field(Name; "No.")
                 {
                     ApplicationArea = All;
-                    TableRelation = Customer."No." where("No." = field("No."));
                     ToolTip = 'Some Tooltip';
                     trigger OnLookup(var Text: Text): Boolean
                     var
@@ -31,8 +30,11 @@ page 50105 MyPage
                     trigger OnAssistEdit()
                     var
                         myBoolean: Boolean;
+                        CodeunitToExtract: Page MyPage2;
                     begin
-                        Rec.testproc();
+                        testproc();
+                        Rec.testproc2();
+                        CodeunitToExtract.test();
                         MissingProcedureWithRecsAsParameter(Rec, xRec);
                     end;
                 }
@@ -48,5 +50,6 @@ page 50105 MyPage
     var
         myInt: Integer;
         MyTable: Record MyTable;
+
 
 }
